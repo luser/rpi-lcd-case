@@ -2,7 +2,7 @@
 use <R-Pi/R-Pi.scad>
 module rpi() {
   rotate(a=[0,0,-90])
-  translate([-85,0,5])
+  translate([-85,0,0])
   pi();
 }
 
@@ -93,7 +93,7 @@ translate([-12, -31, -7]) {
       translate([2, 2, 2])
         cube([76, 124, 37]);
       // Cut out for SD card
-      translate([29.5, 100.76, 8.6])
+      translate([29.25, 100.76, 3.5])
         cube([25, 33, 3.1]);
       // Cut out for power
       translate([12.1, 31, 7])
@@ -101,7 +101,7 @@ translate([-12, -31, -7]) {
     }
     // RPi mounting posts
     // Get into the RPi board coordinate space
-    translate([12, 31, 7]) {
+    translate([12, 31, 2]) {
     translate([43.5, 5, 0])
       mountingpost(3, false);
     translate([18, 59.5, 0])
@@ -110,7 +110,7 @@ translate([-12, -31, -7]) {
     // Lower left
     translate([-3, -3, 0]) {
       difference() {
-        cube([10, 10, 10]);
+        cube([10, 10, 8]);
         translate([3, 3, 5])
           cube([8, 8, 6]);
       }
@@ -118,7 +118,7 @@ translate([-12, -31, -7]) {
     // Upper right
     translate([56.1 - 7, 85 - 7, 0]) {
       difference() {
-        cube([10, 10, 10]);
+        cube([10, 10, 8]);
         translate([-1, -1, 4.5])
           cube([8, 8, 6]);
       }
