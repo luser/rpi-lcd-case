@@ -1,6 +1,7 @@
 // RPi board
 use <R-Pi/R-Pi.scad>
 module rpi() {
+  translate([-1,-1,0])
   rotate(a=[0,0,-90])
   translate([-85,0,0])
   pi();
@@ -68,7 +69,7 @@ module power() {
 }
 
 module power_jack() {
-  translate([66.5, -10, 18.6])
+  translate([67.5, -10, 19.6])
     rotate(a=[0, 0, 180])
       power();
 }
@@ -83,20 +84,20 @@ module mountingpost(r, center) {
 
 // Case Back
 module back() {
-translate([-12, -31, -7]) {
+translate([-13, -32, -8]) {
   color("White", 1.0) {
     union() {
     difference() {
       // Bottom + sides
-      cube([80, 128, 36.6]);
+      cube([82, 130, 38.6]);
       // Cut out inside
-      translate([2, 2, 2])
+      translate([3, 3, 3])
         cube([76, 124, 37]);
       // Cut out for SD card
-      translate([29.25, 100.76, 3.5])
+      translate([29.25, 100.76, 4.5])
         cube([25, 33, 3.1]);
       // Cut out for power
-      translate([12.1, 31, 7])
+      translate([13.1, 32, 8])
         power_jack();
     }
     // RPi mounting posts
@@ -131,27 +132,27 @@ translate([-12, -31, -7]) {
 
 // Case Front
 module front() {
-translate([-12, -31, 29.6]) {
+translate([-13, -32, 30.6]) {
   color("White", 1.0)
   union() {
     difference() {
-      cube([80, 128, 3]);
+      cube([82, 130, 3]);
       // Cut out for display
-      translate([18.55, 86, -5])
+      translate([19.55, 87, -5])
         cube([43, 33, 10]);
       // Cut out for power
-      translate([12.1, 31, -29.6])
+      translate([13.1, 32, -30.6])
         power_jack();
     }
     // Friction-fit edges
-    translate([2, 2, -5])
+    translate([3, 3, -5])
     difference() {
 	   cube([76, 124, 5]);
-      translate([2, 2, -1])
-        cube([72, 120, 6]);
+      translate([3, 3, -1])
+        cube([70, 118, 6]);
       // Cut out for power
-      translate([12.1, 31, -29.6])
-      translate([-2, -2, 5])
+      translate([13.1, 32, -30.6])
+      translate([-3, -3, 5])
         power_jack();
     }
     // LCD mounting blocks
