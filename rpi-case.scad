@@ -69,7 +69,7 @@ module power() {
 }
 
 module power_jack() {
-  translate([67.5, -10, 19.6])
+  translate([67.5, -10, -5])
     rotate(a=[0, 0, 180])
       power();
 }
@@ -87,19 +87,36 @@ module back() {
 translate([-13, -32, -8]) {
   color("White", 1.0) {
     union() {
+    // Bottom
     difference() {
-      // Bottom + sides
-      cube([82, 130, 38.6]);
-      // Cut out inside
-      translate([3, 3, 3])
-        cube([76, 124, 37]);
-      // Cut out for SD card
-      translate([29.25, 100.76, 4.5])
-        cube([25, 33, 3.1]);
+      cube([82, 130, 3]);
       // Cut out for power
       translate([13.1, 32, 8])
         power_jack();
     }
+
+    // Friction-fit edges
+    translate([3, 3, 3])
+    difference() {
+	   cube([76, 124, 5]);
+      translate([3, 3, -1])
+        cube([70, 118, 7]);
+      // Cut out for SD card
+      translate([-3, -3, -3])
+      translate([29.25, 100.76, 4.5])
+        cube([25, 33, 5]);
+      // Cut out for power
+      translate([13.1, 32, 0])
+      translate([-3, -3, 5])
+        power_jack();
+    }
+    // SD card guide
+    translate([26.25, 119, 3])
+      difference() {
+        cube([31, 11, 5]);
+        translate([3, -1, 1.5])
+          cube([25, 13, 5]);
+      }
     // RPi mounting posts
     // Get into the RPi board coordinate space
     translate([12, 31, 2]) {
@@ -136,23 +153,21 @@ translate([-13, -32, 30.6]) {
   color("White", 1.0)
   union() {
     difference() {
-      cube([82, 130, 3]);
+      translate([0, 0, -35.6])
+        // Front and side walls
+        cube([82, 130, 38.6]);
+      // Cut out inside
+      translate([3, 3, -36.6])
+        cube([76, 124, 36.6]);
       // Cut out for display
       translate([19.55, 87, -5])
         cube([43, 33, 10]);
+      // Cut out for SD card
+      translate([0, 0, -36.6])
+      translate([29.25, 100.76, 0])
+        cube([25, 33, 5.4]);
       // Cut out for power
       translate([13.1, 32, -30.6])
-        power_jack();
-    }
-    // Friction-fit edges
-    translate([3, 3, -5])
-    difference() {
-	   cube([76, 124, 5]);
-      translate([3, 3, -1])
-        cube([70, 118, 6]);
-      // Cut out for power
-      translate([13.1, 32, -30.6])
-      translate([-3, -3, 5])
         power_jack();
     }
     // LCD mounting blocks
