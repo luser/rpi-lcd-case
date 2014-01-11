@@ -98,8 +98,12 @@ module hdmi ()
 
 module power ()
 	{
-	translate ([-0.8,3.8,height])
+	translate ([-0.8,3.8,height]) {
 	cube ([5.6, 8,4.4-height]);
+   // Connector
+   translate([-9.37, 0.32, 0.46])
+   cube([13.63, 7.36, 1.88]);
+   }
 	}
 
 module sd ()
