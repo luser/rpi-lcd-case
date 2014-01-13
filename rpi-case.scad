@@ -224,7 +224,17 @@ translate([-13, -32, 30.6]) {
 }
 
 //rpi();
+/*
+projection(cut=true)
+translate([33, 52, 1])
+*/
 back();
+/*
+projection(cut=true)
+translate([33 + 82, 0, 0])
+rotate(a=[0,180,0])
+translate([33, 52, -30])
+*/
 front();
 //display();
 //voltageconverter();
