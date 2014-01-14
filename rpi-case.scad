@@ -93,6 +93,13 @@ translate([-13, -32, -8]) {
       // Cut out for power
       translate([13.1, 32, 8])
         power_jack();
+      // Ventilation holes
+      for (i = [0 : 4]) {
+        for (j = [0 : 4]) {
+          translate([20 + i*10, 42 + j*10, 2.4])
+          cylinder(h=5, r=1, $fn=50, center=true);
+        }
+      }
     }
 
     // Friction-fit edges
