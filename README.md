@@ -1,5 +1,5 @@
-This repository contains OpenSCAD files to produce a case to hold a [Raspberry Pi] (specifically a Model A)
-and a [2 inch LCD display].
+This repository contains OpenSCAD files to produce a case to hold a
+[Raspberry Pi], specifically a Model A, and a [2 inch LCD display].
 
 The included Raspberry Pi model is from [Philip McGaw].
 
