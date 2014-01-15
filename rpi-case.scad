@@ -63,8 +63,12 @@ module power() {
   color("Black")
   union() {
     cube([14, 8, 11]);
-    translate([-1.5, -2, -1])
-      cube([1.5, 12.0, 13]);
+    translate([-2.5, -2, -1])
+      cube([2.5, 12.0, 13]);
+    translate([1.45, -2, 3])
+      cube([9.05, 2, 5]);
+    translate([1.45, 8, 3])
+      cube([9.05, 2, 5]);
   }
 }
 
@@ -113,7 +117,7 @@ translate([-13, -32, -8]) {
       translate([29.25, 100.76, 4.5])
         cube([25, 33, 5]);
       // Cut out for power
-      translate([13.1, 32, 0])
+      translate([12.55, 32, 0])
       translate([-3, -3, 5])
         power_jack();
     }
@@ -174,7 +178,7 @@ translate([-13, -32, 30.6]) {
       translate([29.25, 100.76, 0])
         cube([25, 33, 5.4]);
       // Cut out for power
-      translate([13.1, 32, -30.6])
+      translate([12.55, 32, -30.6])
         power_jack();
     }
     // LCD mounting blocks
