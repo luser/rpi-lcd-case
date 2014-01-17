@@ -234,12 +234,12 @@ translate([-13, -32, 30.6]) {
 }
 }
 
-//rpi();
+rpi();
 /*
 projection(cut=true)
 translate([33, 52, 1])
 */
-back();
+//back();
 /*
 projection(cut=true)
 translate([33 + 82, 0, 0])

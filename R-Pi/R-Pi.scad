@@ -40,16 +40,26 @@ module ethernet ()
 
 module usb ()
 	{
-	color("silver")
-	translate([length-9.5,25,height])
 	if (Version == "A")
 		{
+		translate([length-7,25,height]) {
 		// Single USB Port
-		cube([17.3,13.3,8]);		// Check hight!
+		color("silver")
+		cube([14.2,13.3,7]);		// Check hight!
+      // USB WiFi
+      translate([5.7, 0.65, 1.75])
+		color("silver")
+      cube([12, 12, 4.5]);
+      color("black")
+      translate([17.5, -0.575, 0.97])
+      cube([6.25, 14.45, 6.06]);
+      }
 		}
 	else
 		{
+    	translate([length-9.5,25,height])
 		//Double usb port
+		color("silver")
 		cube([17.3,13.3,16]);
 		}
 	}
@@ -60,10 +70,25 @@ module composite ()
 		{
 		color("yellow")
 		cube([10,10,13]);
-		translate([5,19,8])
-		rotate([90,0,0])
+		translate([5,19,8]) {
+		rotate([90,0,0]) {
 		color("silver")
 		cylinder(h = 9, r = 4.15);
+	   // Solderable composite connector
+      translate([0,0,-0.3])
+      color("silver")
+      cylinder(h = 6.3, r = 4.55);
+      translate([0,0,-4.23])
+      color("yellow")
+      cylinder(h = 4.23, r = 5.95);
+      translate([0,0,-9.23])
+      color("yellow")
+      cylinder(h = 5, r = 4.6);
+      translate([-2, -4, -14.23])
+      color("silver")
+      cube([4, 0.6, 5]);
+      }
+      }
 		}
 	}
 
