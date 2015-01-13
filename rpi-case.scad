@@ -1,7 +1,7 @@
 // RPi board
 use <R-Pi/R-Pi.scad>
 module rpi() {
-  translate([-1,-1,0])
+  translate([-7,-1,0])
   rotate(a=[0,0,-90])
   translate([-85,0,0])
   pi();
@@ -73,7 +73,7 @@ module power() {
 }
 
 module power_jack() {
-  translate([67.5, -10, -5])
+  translate([74.5, -10, -5])
     rotate(a=[0, 0, 180])
       power();
 }
@@ -93,14 +93,14 @@ translate([-13, -32, -8]) {
     union() {
     // Bottom
     difference() {
-      cube([82, 130, 3]);
+      cube([89, 130, 3]);
       // Cut out for power
-      translate([13.1, 32, 8])
+      translate([20.1, 32, 8])
         power_jack();
       // Ventilation holes
       for (i = [0 : 4]) {
         for (j = [0 : 4]) {
-          translate([20 + i*10, 42 + j*10, 2.4])
+          translate([14 + i*10, 42 + j*10, 2.4])
           cylinder(h=5, r=1, $fn=50, center=true);
         }
       }
@@ -109,12 +109,12 @@ translate([-13, -32, -8]) {
     // Friction-fit edges
     translate([3, 3, 3])
     difference() {
-	   cube([76, 124, 5]);
+	   cube([83, 124, 5]);
       translate([3, 3, -1])
-        cube([70, 118, 7]);
+        cube([77, 118, 7]);
       // Cut out for SD card
       translate([-3, -3, -3])
-      translate([29.25, 100.76, 4.5])
+      translate([23.25, 100.76, 4.5])
         cube([25, 33, 5]);
       // Cut out for power
       translate([12.55, 32, 0])
@@ -122,7 +122,7 @@ translate([-13, -32, -8]) {
         power_jack();
     }
     // SD card guide
-    translate([26.25, 119, 3])
+    translate([20.25, 119, 3])
       difference() {
         cube([31, 11, 5]);
         translate([3, -1, 1.5])
@@ -130,7 +130,7 @@ translate([-13, -32, -8]) {
       }
     // RPi mounting posts
     // Get into the RPi board coordinate space
-    translate([12, 31, 2]) {
+    translate([6, 31, 2]) {
     translate([43.5, 5, 0])
       mountingpost(3, false);
     translate([18, 59.5, 0])
@@ -166,19 +166,18 @@ translate([-13, -32, 30.6]) {
     difference() {
       translate([0, 0, -35.6])
         // Front and side walls
-        cube([82, 130, 38.6]);
+        cube([89, 130, 38.6]);
       // Cut out inside
       translate([3, 3, -36.6])
-        cube([76, 124, 36.6]);
+        cube([83, 124, 36.6]);
       // Cut out for display
       translate([19.55, 87, -5])
         cube([43, 33, 10]);
       // Cut out for SD card
-      translate([0, 0, -36.6])
-      translate([29.25, 100.76, 0])
+      translate([23.25, 100.76, -36.6])
         cube([25, 33, 5.4]);
       // Cut out for power
-      translate([12.55, 32, -30.6])
+      translate([19.55, 32, -30.6])
         power_jack();
     }
     // LCD mounting blocks
@@ -239,7 +238,7 @@ rpi();
 projection(cut=true)
 translate([33, 52, 1])
 */
-//back();
+back();
 /*
 projection(cut=true)
 translate([33 + 82, 0, 0])
@@ -247,6 +246,6 @@ rotate(a=[0,180,0])
 translate([33, 52, -30])
 */
 front();
-//display();
-//voltageconverter();
-//power_jack();
+display();
+voltageconverter();
+power_jack();
