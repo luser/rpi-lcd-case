@@ -174,8 +174,8 @@ translate([-13, -32, 30.6]) {
       translate([19.55, 87, -5])
         cube([43, 33, 10]);
       // Cut out for SD card
-      translate([23.25, 100.76, -36.6])
-        cube([25, 33, 5.4]);
+      translate([20.25, 100.76, -36.6])
+        cube([31, 33, 5.4]);
       // Cut out for power
       translate([19.55, 32, -30.6])
         power_jack();
